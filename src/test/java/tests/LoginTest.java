@@ -20,8 +20,8 @@ public class LoginTest extends DriverClass {
     public void login_with_valid_credentials(String username, String password){
 
         driver.findElement(By.id("btn-make-appointment")).click();
-        driver.findElement(By.id("txt-username")).sendKeys("John Doe");
-        driver.findElement(By.id("txt-password")).sendKeys("ThisIsNotAPassword");
+        driver.findElement(By.id("txt-username")).sendKeys(username);
+        driver.findElement(By.id("txt-password")).sendKeys(password);
         driver.findElement(By.id("btn-login")).click();
         String url = driver.getCurrentUrl();
         Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
