@@ -13,7 +13,7 @@
     <test name="Testing with parameters With Firefox">
         <parameter name="browserName" value="firefox"></parameter>
         <parameter name="username" value="John Doe"></parameter>
-        <parameter name="password" value="ThisIsNotAPassword"></parameter>
+        <parameter name="password" value="ThisIsNotAPassword123"></parameter>
         <classes>
             <class name="tests.LoginTest"></class>
         </classes>
