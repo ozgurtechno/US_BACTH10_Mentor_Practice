@@ -47,7 +47,6 @@ public class DriverClass {
 
         driver.manage().window().maximize();
 
-        driver.get("https://opencart.abstracta.us/index.php?route=account/login");
     }
 
     @AfterClass(alwaysRun = true)
