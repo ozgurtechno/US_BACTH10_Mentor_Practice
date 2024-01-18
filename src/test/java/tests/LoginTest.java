@@ -3,10 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utilities.DriverClass;
 
 public class LoginTest extends DriverClass {
@@ -16,8 +13,7 @@ public class LoginTest extends DriverClass {
         driver.get("https://katalon-demo-cura.herokuapp.com/");
     }
 
-    @Test
-    @Parameters({"username", "password"})
+    @Test(dataProvider = "dataProvider")
     public void login_with_valid_credentials(@Optional("Ozgur") String username, @Optional("Arslan") String password){
 
         driver.findElement(By.id("btn-make-appointment")).click();
@@ -32,11 +28,15 @@ public class LoginTest extends DriverClass {
         }
 
     }
+@DataProvider
+    public Object[][] dataProvider(){
+        Object[][] provider = {
+                {"John doe"},{"ThisIsNotAPassword"}
 
-    public void dataProvider(){
-
+        };
+        return provider;
     }
-
+    
 
 
 }
