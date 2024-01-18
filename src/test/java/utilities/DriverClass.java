@@ -54,6 +54,7 @@ public class DriverClass {
 
     public void closePreviousDrivers(){
         try {
+
 //            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
             Runtime.getRuntime().exec("pkill -f chromedriver");
         } catch (IOException e) {
