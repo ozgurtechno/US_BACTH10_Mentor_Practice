@@ -14,7 +14,7 @@ public class LoginTest extends DriverClass {
     }
 
     @Test(dataProvider = "dataProvider")
-    public void login_with_valid_credentials(@Optional("Ozgur") String username, @Optional("Arslan") String password){
+    public void login_with_valid_credentials(String username, String password){
 
         driver.findElement(By.id("btn-make-appointment")).click();
         driver.findElement(By.id("txt-username")).sendKeys(username);
@@ -31,7 +31,8 @@ public class LoginTest extends DriverClass {
 @DataProvider
     public Object[][] dataProvider(){
         Object[][] provider = {
-                {"John doe"},{"ThisIsNotAPassword"}
+                {"John doe"},{"ThisIsNotAPassword"},
+                {"John doe"},{"ThisIsNotAPassword1234"}
 
         };
         return provider;
