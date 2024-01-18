@@ -23,9 +23,11 @@ public class DriverClass {
     public static Actions actions;
 
     @BeforeClass(alwaysRun = true) // Before Class doesn't work with groups. Because we are not running the class.
+
     @Parameters("browserName")
     public void createDriver(@Optional("chrome") String browser){
         switch (browser.toLowerCase()) {
+
             case "chrome":
                 driver = new ChromeDriver();
                 break;
@@ -39,11 +41,15 @@ public class DriverClass {
                 driver = new EdgeDriver();
                 break;
         }
+
         driver.manage().window().maximize();
+
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
     }
 
     @AfterClass(alwaysRun = true)
