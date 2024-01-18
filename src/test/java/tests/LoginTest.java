@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utilities.DriverClass;
@@ -17,7 +18,7 @@ public class LoginTest extends DriverClass {
 
     @Test
     @Parameters({"username", "password"})
-    public void login_with_valid_credentials(String username, String password){
+    public void login_with_valid_credentials(@Optional("Ozgur") String username, @Optional("Arslan") String password){
 
         driver.findElement(By.id("btn-make-appointment")).click();
         driver.findElement(By.id("txt-username")).sendKeys(username);
