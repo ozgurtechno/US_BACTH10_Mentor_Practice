@@ -23,10 +23,11 @@ public class DriverClass {
     public static Actions actions;
 
     @BeforeClass(alwaysRun = true) // Before Class doesn't work with groups. Because we are not running the class.
-    // We are running some tests in the class. To make sure it runs all the time we should add alwaysRun=true
+
     @Parameters("browserName")
     public void createDriver(@Optional("chrome") String browser){
-        switch (browser.toLowerCase()){
+        switch (browser.toLowerCase()) {
+
             case "chrome":
                 driver = new ChromeDriver();
                 break;
@@ -40,12 +41,14 @@ public class DriverClass {
                 driver = new EdgeDriver();
                 break;
         }
+
+        driver.manage().window().maximize();
+
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         actions = new Actions(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.manage().window().maximize();
 
     }
 
@@ -57,6 +60,7 @@ public class DriverClass {
 
     public void closePreviousDrivers(){
         try {
+
 //            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
             Runtime.getRuntime().exec("pkill -f chromedriver");
         } catch (IOException e) {
