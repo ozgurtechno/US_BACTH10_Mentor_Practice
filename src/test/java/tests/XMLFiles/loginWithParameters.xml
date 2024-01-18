@@ -4,6 +4,16 @@
     <test name="Testing with parameters With Chrome">
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="username" value="John Doe"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="password" value="ThisIsNotAPassword"></parameter>
+        <classes>
+            <class name="tests.LoginTest"></class>
+        </classes>
+    </test>
+
+    <test name="Testing with parameters2">
+        <parameter name="browserName" value="firefox"></parameter>
+        <parameter name="username1" value="John Doe1"></parameter>
         <parameter name="password" value="ThisIsNotAPassword"></parameter>
         <classes>
             <class name="tests.LoginTest"></class>
