@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test name="Testing with parameters with Chrome">
+    <test name="Testing with parameters With Chrome">
         <parameter name="browserName" value="chrome"></parameter>
         <parameter name="username" value="John Doe"></parameter>
         <parameter name="password" value="ThisIsNotAPassword"></parameter>
@@ -10,7 +10,7 @@
         </classes>
     </test>
 
-    <test name="Testing with parameters with Firefox">
+    <test name="Testing with parameters With Firefox">
         <parameter name="browserName" value="firefox"></parameter>
         <parameter name="username" value="John Doe"></parameter>
         <parameter name="password" value="ThisIsNotAPassword123"></parameter>

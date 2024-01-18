@@ -25,7 +25,16 @@ public class LoginTest extends DriverClass {
         driver.findElement(By.id("txt-password")).sendKeys(password);
         driver.findElement(By.id("btn-login")).click();
         String url = driver.getCurrentUrl();
-        Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
+        if (username.equalsIgnoreCase("John Doe") && password.equalsIgnoreCase("ThisIsNotAPassword")){
+            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
+        } else {
+            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
+        }
+
+    }
+
+    public void dataProvider(){
+
     }
 
 
