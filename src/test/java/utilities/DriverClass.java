@@ -1,6 +1,7 @@
 package utilities;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -60,9 +61,11 @@ public class DriverClass {
 
     public void closePreviousDrivers(){
         try {
-
-//            Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-            Runtime.getRuntime().exec("pkill -f chromedriver");
+            if (Platform.getCurrent().is(Platform.MAC)) {
+                Runtime.getRuntime().exec("pkill -f chromedriver");
+            } else if (Platform.getCurrent().is(Platform.WINDOWS)) {
+                Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
