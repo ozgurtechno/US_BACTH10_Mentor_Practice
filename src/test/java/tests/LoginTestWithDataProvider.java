@@ -1,26 +1,22 @@
 package tests;
 
-import net.bytebuddy.build.Plugin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
-import org.testng.asserts.SoftAssert;
-
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 import utilities.DriverClass;
 
-import java.io.IOException;
-
-public class LoginTest extends DriverClass {
+public class LoginTestWithDataProvider extends DriverClass {
 
     @BeforeMethod
     public void get_url(){
         driver.get("https://katalon-demo-cura.herokuapp.com/");
     }
 
-    @Test
-    @Parameters({"username", "password"})
+    @Test(dataProvider = "loginData")
+//    @Parameters({"username", "password"})
     public void login_with_valid_credentials(String username, String password){
 
         driver.findElement(By.id("btn-make-appointment")).click();
@@ -38,6 +34,17 @@ public class LoginTest extends DriverClass {
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
         }
 
+    }
+
+    @DataProvider(name = "loginData")
+    public Object[][] credentials() {
+        Object[][] credentialsArray = {
+                {"John Doe", "ThisIsNotAPassword"},
+                {"John", "@John12"},
+                {"12John345", "John1234"},
+                {"fgdJohn", "12John4567"}
+        };
+        return credentialsArray;
     }
 
 }
