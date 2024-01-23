@@ -30,6 +30,7 @@ public class LoginTest extends DriverClass {
             softAssert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
             softAssert.assertAll();
         }
+        softAssert.assertAll();
 
     }
 @DataProvider
