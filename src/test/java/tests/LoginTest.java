@@ -39,9 +39,9 @@ public class LoginTest extends DriverClass {
             logoutButton.click();
         } else {
             softAssert.assertEquals(url,"https://katalon-demo-cura.herokuapp.com/profile.php#login");
-            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
         }
 
+        softAssert.assertAll();
     }
 
 }
