@@ -22,7 +22,10 @@ public class LoginTest extends DriverClass {
     @Test
     @Parameters({"username", "password"})
     public void login_with_valid_credentials(String username, String password){
+        
+        SoftAssert softAssert = new SoftAssert();
 
+        
         driver.findElement(By.id("btn-make-appointment")).click();
         driver.findElement(By.id("txt-username")).sendKeys(username);
         driver.findElement(By.id("txt-password")).sendKeys(password);
@@ -30,11 +33,12 @@ public class LoginTest extends DriverClass {
         String url = driver.getCurrentUrl();
 
         if (username.equalsIgnoreCase("John Doe") && password.equalsIgnoreCase("ThisIsNotAPassword")){
-            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
+            softAssert.assertEquals(url,"https://katalon-demo-cura.herokuapp.com/#appointment");
             driver.findElement(By.xpath("//a[@id='menu-toggle']")).click();
             WebElement logoutButton = driver.findElement(By.xpath("//a[.='Logout']"));
             logoutButton.click();
         } else {
+            softAssert.assertEquals(url,"https://katalon-demo-cura.herokuapp.com/profile.php#login");
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
         }
 
