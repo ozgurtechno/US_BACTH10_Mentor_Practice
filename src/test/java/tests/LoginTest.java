@@ -28,16 +28,20 @@ public class LoginTest extends DriverClass {
         driver.findElement(By.id("txt-password")).sendKeys(password);
         driver.findElement(By.id("btn-login")).click();
         String url = driver.getCurrentUrl();
-
+        SoftAssert softAssert = new SoftAssert();
         if (username.equalsIgnoreCase("John Doe") && password.equalsIgnoreCase("ThisIsNotAPassword")){
-            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
+
+            softAssert.assertEquals(url,"https://katalon-demo-cura.herokuapp.com/#appointment");
             driver.findElement(By.xpath("//a[@id='menu-toggle']")).click();
             WebElement logoutButton = driver.findElement(By.xpath("//a[.='Logout']"));
             logoutButton.click();
         } else {
-            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
-        }
+            //Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
+            softAssert.assertEquals(url,"https://katalon-demo-cura.herokuapp.com/profile.php#login");
 
+
+        }
+        softAssert.assertAll();
     }
 
 }
