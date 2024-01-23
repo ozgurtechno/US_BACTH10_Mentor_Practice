@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import utilities.DriverClass;
 
 public class LoginTest extends DriverClass {
-
+    SoftAssert softAssert = new SoftAssert();
     @BeforeMethod
     public void get_url(){
         driver.get("https://katalon-demo-cura.herokuapp.com/");
@@ -26,7 +26,7 @@ public class LoginTest extends DriverClass {
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
         } else {
 //            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
-            SoftAssert softAssert = new SoftAssert();
+
             softAssert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
             softAssert.assertAll();
         }
