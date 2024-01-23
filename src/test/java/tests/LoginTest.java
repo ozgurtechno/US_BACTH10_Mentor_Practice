@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class LoginTest extends DriverClass {
 
+    // Soft Assert Practice - Change this code so that we can soft assert the test - 5 minute
+
     @BeforeMethod
     public void get_url() {
         driver.get("https://katalon-demo-cura.herokuapp.com/");
