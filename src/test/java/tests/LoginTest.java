@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 import utilities.DriverClass;
 
 public class LoginTest extends DriverClass {
@@ -24,7 +25,10 @@ public class LoginTest extends DriverClass {
         if (username.equalsIgnoreCase("John Doe") && password.equalsIgnoreCase("ThisIsNotAPassword")){
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
         } else {
-            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
+//            Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
+            SoftAssert softAssert = new SoftAssert();
+            softAssert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/profile.php#login");
+            softAssert.assertAll();
         }
 
     }
