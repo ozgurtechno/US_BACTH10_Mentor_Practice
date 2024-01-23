@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-    <test name="Testing with valid credentials">
+    <test name="Testing with valid credentials" parallel="tests" thread-count="2">
 
         <parameter name="username" value="John Doe"></parameter>
         <parameter name="password" value="ThisIsNotAPassword"></parameter>
