@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 import utilities.DriverClass;
 
 public class LoginTest extends DriverClass {
-    LoginPage loginPage = new LoginPage();
+
 
     @BeforeMethod
     public void get_url() {
@@ -21,6 +21,7 @@ public class LoginTest extends DriverClass {
     @Test
     @Parameters({"username", "password"})
     public synchronized void login_with_valid_credentials(@Optional("John Doe") String username, @Optional("ThisIsNotAPassword") String password) {
+        LoginPage loginPage = new LoginPage();
         loginPage.makeAppointment.click();
         loginPage.username.sendKeys(username);
         loginPage.password.sendKeys(password);
