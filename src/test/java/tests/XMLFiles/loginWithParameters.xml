@@ -5,6 +5,7 @@
     <test name="Testing with valid credentials">
 
         <parameter name="username" value="John Doe"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
         <parameter name="password" value="ThisIsNotAPassword"></parameter>
         <parameter name="browserName" value="chrome"></parameter>
         <classes>
@@ -15,6 +16,15 @@
         <parameter name="username" value="Non_Valid"></parameter>
         <parameter name="password" value="Credentials"></parameter>
         <parameter name="browserName" value="chrome"></parameter>
+        <classes>
+            <class name="tests.LoginTest"></class>
+        </classes>
+    </test>
+
+    <test name="Testing with parameters2">
+        <parameter name="browserName" value="firefox"></parameter>
+        <parameter name="username" value="John Doe1"></parameter>
+        <parameter name="password" value="ThisIsNotAPassword1"></parameter>
         <classes>
             <class name="tests.LoginTest"></class>
         </classes>
