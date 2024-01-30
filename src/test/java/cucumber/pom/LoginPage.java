@@ -1,13 +1,15 @@
-package pom_practice;
+package cucumber.pom;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.DriverClass;
+import utilities.MyMethods;
 import utilities.TestNGDriverClass;
 
-public class LoginPage {
+public class LoginPage extends MyMethods {
     public LoginPage(){
-        PageFactory.initElements(TestNGDriverClass.driver,this);
+        PageFactory.initElements(DriverClass.getDriver(),this);
     }
     @FindBy(id = "btn-make-appointment")
     public WebElement makeAppointment;
