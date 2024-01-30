@@ -71,7 +71,6 @@ public class DriverClass {
         }
     }
 
-
     public static final Logger logger = LogManager.getLogger();
     @BeforeMethod(alwaysRun = true)
     public void logsBeforeTest(ITestResult testResult){
