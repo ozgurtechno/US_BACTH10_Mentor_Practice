@@ -2,12 +2,25 @@ Feature: Login Function
   As a user I want to be able to login
   with my valid username and password
 
-  Scenario: Login with valid username and password
+  Scenario Outline: Login with valid username and password
     Given Navigate to Katalon Web Site
-    And Enter "John Doe" and "ThisIsNotAPassword"
+    And Enter "<username>" and "<password>"
     When Click on Login Button
     Then User should login successfully
 
+    Examples:
+      | username | password |
+      | John Doe | ThisIsNotAPassword |
 
-#    Task 1 : Run this Scenario
-#    Task 2 : Send username and password from this scenario to login steps
+  Scenario Outline: Login with invalid username and password
+    Given Navigate to Katalon Web Site
+    And Enter "<username>" and "<password>"
+    When Click on Login Button
+    Then User should get error
+    Examples:
+      | username | password |
+      | Invalid | ThisIsNotAPassword |
+      | John Doe | Invalid |
+      | Invalid | Invalid |
+      | John Doe |  |
+      |  | ThisIsNotAPassword |

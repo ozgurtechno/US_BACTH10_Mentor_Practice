@@ -1,10 +1,10 @@
 package cucumber.stepDefinitions;
 
 import cucumber.pom.LoginPage;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import utilities.DriverClass;
 
@@ -16,8 +16,9 @@ public class LoginSteps {
     public void navigate_to_katalon_web_site() {
         DriverClass.getDriver().get("https://katalon-demo-cura.herokuapp.com/");
     }
-    @And("Enter {string} and {string}")
-    public void enterAnd(String username, String password) {
+
+    @Given("Enter {string} and {string}")
+    public void enter_and(String username, String password) {
         loginPage.makeAppointment.click();
         loginPage.username.sendKeys(username);
         loginPage.password.sendKeys(password);
@@ -34,5 +35,9 @@ public class LoginSteps {
         Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
     }
 
-
+    @Then("User should get error")
+    public void userShouldGetError() {
+        String message = DriverClass.getDriver().findElement(By.xpath("//p[@class='lead text-danger']")).getText();
+        Assert.assertEquals(message, "Login failed! Please ensure the username and password are valid.");
+    }
 }
