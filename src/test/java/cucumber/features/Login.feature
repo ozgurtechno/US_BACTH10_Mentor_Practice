@@ -10,3 +10,14 @@ Feature: Login Function
 
 
 #    Task 1 : Run this Scenario
+  Scenario Outline: Data for username and password
+    Given Navigate to Katalon Web Site
+    And "<username>" and "<password>"
+    When Click on Login Button
+    Then User should login successfully
+    Examples:
+    |username|password|
+    |John Doe|ThisIsNotAPassword1|
+    |J0hn Doe|ThisIsNotAPassword|
+    |        |ThisIsNotAPassword|
+    |John Doe|                  |

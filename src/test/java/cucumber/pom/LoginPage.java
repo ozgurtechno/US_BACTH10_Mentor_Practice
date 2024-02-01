@@ -29,4 +29,7 @@ public class LoginPage extends MyMethods {
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logOut;
 
+    @FindBy(css = "p[class=\"lead text-danger\"]")
+    public WebElement errorMessage;
+
 }
