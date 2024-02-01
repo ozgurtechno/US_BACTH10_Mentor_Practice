@@ -7,3 +7,6 @@ Feature: Login Function
     And Enter username and password
     When Click on Login Button
     Then User should login successfully
+
+
+#    Task 1 : Run this Scenario

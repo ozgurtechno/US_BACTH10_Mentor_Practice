@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.DriverClass;
 import utilities.MyMethods;
-import utilities.TestNGDriverClass;
+
 
 public class LoginPage extends MyMethods {
     public LoginPage(){
