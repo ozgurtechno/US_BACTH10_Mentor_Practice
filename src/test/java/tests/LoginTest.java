@@ -1,18 +1,14 @@
 package tests;
 
-import net.bytebuddy.build.Plugin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import org.testng.asserts.SoftAssert;
 
-import utilities.DriverClass;
+import utilities.TestNGDriverClass;
 
-import java.io.IOException;
-
-public class LoginTest extends DriverClass {
+public class LoginTest extends TestNGDriverClass {
 
     @BeforeMethod
     public void get_url() {

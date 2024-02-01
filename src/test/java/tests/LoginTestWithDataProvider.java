@@ -6,9 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utilities.DriverClass;
+import utilities.TestNGDriverClass;
 
-public class LoginTestWithDataProvider extends DriverClass {
+public class LoginTestWithDataProvider extends TestNGDriverClass {
 
     @BeforeMethod
     public void get_url(){
