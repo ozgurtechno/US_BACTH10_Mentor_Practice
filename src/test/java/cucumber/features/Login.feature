@@ -14,7 +14,7 @@ Feature: Login Function
     Given Navigate to Katalon Web Site
     And "<username>" and "<password>"
     When Click on Login Button
-    Then User should login successfully
+    Then User should get error
     Examples:
     |username|password|
     |John Doe|ThisIsNotAPassword1|

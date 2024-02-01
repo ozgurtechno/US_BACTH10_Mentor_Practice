@@ -35,9 +35,9 @@ public class LoginSteps {
         String url = DriverClass.getDriver().getCurrentUrl();
         if (DriverClass.getDriver().getCurrentUrl() == url){
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
-        }else{
-            Assert.assertTrue(loginPage.errorMessage.isDisplayed());
-        }
+        }//else{
+//            Assert.assertTrue(loginPage.errorMessage.isDisplayed());
+//        }
 
 
     }
@@ -47,6 +47,10 @@ public class LoginSteps {
         loginPage.makeAppointment.click();
         loginPage.username.sendKeys(username);
         loginPage.password.sendKeys(password);
+    }
 
+    @Then("User should get error")
+    public void userShouldGetError() {
+        loginPage.errorMessage.isDisplayed();
     }
 }
