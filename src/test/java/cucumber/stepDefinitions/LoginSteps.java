@@ -16,12 +16,12 @@ public class LoginSteps {
     public void navigate_to_katalon_web_site() {
         DriverClass.getDriver().get("https://katalon-demo-cura.herokuapp.com/");
     }
-
-    @Given("Enter username and password")
-    public void enter_username_and_password() {
+    @And("username {string} and password {string}")
+    public void usernameAndPassword(String username, String password) {
         loginPage.makeAppointment.click();
-        loginPage.username.sendKeys("John Doe");
-        loginPage.password.sendKeys("ThisIsNotAPassword");
+        loginPage.username.sendKeys(username);
+        loginPage.password.sendKeys(password);
+
     }
 
     @When("Click on Login Button")
@@ -35,11 +35,5 @@ public class LoginSteps {
         Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
     }
 
-    @And("username {string} and password {string}")
-    public void usernameAndPassword(String username, String password) {
-        loginPage.makeAppointment.click();
-        loginPage.username.sendKeys(username);
-        loginPage.password.sendKeys(password);
 
-    }
 }

@@ -4,15 +4,9 @@ Feature: Login Function
 
   Scenario: Login with valid username and password
     Given Navigate to Katalon Web Site
-    And Enter username and password
+    And username "John Doe" and password "ThisIsNotAPassword"
     When Click on Login Button
     Then User should login successfully
 
 
 #    Task 1 : Run this Scenario
-
-  Scenario:
-    Given Navigate to Katalon Web Site
-    And username "John Doe" and password "ThisIsNotAPassword"
-    When Click on Login Button
-    Then User should login successfully
