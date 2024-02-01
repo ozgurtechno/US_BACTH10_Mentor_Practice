@@ -10,3 +10,9 @@ Feature: Login Function
 
 
 #    Task 1 : Run this Scenario
+
+  Scenario: Login with valid username and password
+    Given Navigate to Katalon Web Site
+    And Enter "John Doe" and "ThisIsNotAPassword"
+    When Click on Login Button
+    Then User should login successfully
