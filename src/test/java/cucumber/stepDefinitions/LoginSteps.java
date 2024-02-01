@@ -1,6 +1,7 @@
 package cucumber.stepDefinitions;
 
 import cucumber.pom.LoginPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,5 +33,13 @@ public class LoginSteps {
     public void user_should_login_successfully() {
         String url = DriverClass.getDriver().getCurrentUrl();
         Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
+    }
+
+    @And("username {string} and password {string}")
+    public void usernameAndPassword(String username, String password) {
+        loginPage.makeAppointment.click();
+        loginPage.username.sendKeys(username);
+        loginPage.password.sendKeys(password);
+
     }
 }
