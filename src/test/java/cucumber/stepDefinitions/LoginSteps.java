@@ -33,12 +33,7 @@ public class LoginSteps {
     @Then("User should login successfully")
     public void user_should_login_successfully() {
         String url = DriverClass.getDriver().getCurrentUrl();
-        if (DriverClass.getDriver().getCurrentUrl() == url){
             Assert.assertEquals(url, "https://katalon-demo-cura.herokuapp.com/#appointment");
-        }//else{
-//            Assert.assertTrue(loginPage.errorMessage.isDisplayed());
-//        }
-
 
     }
 
