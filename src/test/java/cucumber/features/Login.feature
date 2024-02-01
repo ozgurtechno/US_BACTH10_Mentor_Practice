@@ -2,15 +2,12 @@ Feature: Login Function
   As a user I want to be able to login
   with my valid username and password
 
-  Scenario Outline: Login with valid username and password
+  Scenario: Login with valid username and password
     Given Navigate to Katalon Web Site
-    And Enter "<username>" and "<password>"
+    And Enter "John Doe" and "ThisIsNotAPassword"
     When Click on Login Button
     Then User should login successfully
 
-    Examples:
-      | username | password |
-      | John Doe | ThisIsNotAPassword |
 
   Scenario Outline: Login with invalid username and password
     Given Navigate to Katalon Web Site
