@@ -9,5 +9,15 @@ Feature: Login Function
     Then User should login successfully
 
 
-#    Task 1 : Run this Scenario
-#    Task 2 : Send username and password from this scenario to login steps
+  Scenario Outline: Login with invalid username and password
+    Given Navigate to Katalon Web Site
+    And Enter "<username>" and "<password>"
+    When Click on Login Button
+    Then User should get error
+    Examples:
+      | username | password |
+      | Invalid | ThisIsNotAPassword |
+      | John Doe | Invalid |
+      | Invalid | Invalid |
+      | John Doe |  |
+      |  | ThisIsNotAPassword |
