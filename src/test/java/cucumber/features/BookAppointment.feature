@@ -6,7 +6,7 @@ Feature: Book Appointment
     And Enter "John Doe" and "ThisIsNotAPassword"
     When Click on Login Button
     Then User should login successfully
-
+  @SmokeTest
   Scenario: Book appointment
     Given Fill out the form
     When Click on Submit Button

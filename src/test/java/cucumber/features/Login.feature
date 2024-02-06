@@ -8,7 +8,7 @@ Feature: Login Function
     When Click on Login Button
     Then User should login successfully
 
-
+  @RegressionTest
   Scenario Outline: Login with invalid username and password
     Given Navigate to Katalon Web Site
     And Enter "<username>" and "<password>"
