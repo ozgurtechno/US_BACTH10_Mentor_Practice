@@ -6,6 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/java/cucumber/features/BookAppointment.feature",
         glue = "cucumber/stepDefinitions",
+        tags = "@SmokeTest",
         plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 )
 
