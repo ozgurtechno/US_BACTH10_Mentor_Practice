@@ -8,17 +8,18 @@ import org.testng.Assert;
 import utilities.DriverClass;
 
 import java.util.List;
+import java.util.Map;
 
 public class BookAppointmentSteps {
 BookAppointmentPage bp = new BookAppointmentPage();
 
     @Given("Fill out the form")
     public void fill_out_the_form(DataTable dataTable) {
-        List<String> dataList = dataTable.asList(String.class);
+        List<Map<String, String>> list = dataTable.asMaps(String.class, String.class);
         Select select = new Select(bp.facilitySelect);
-        select.selectByIndex(Integer.parseInt(dataList.get(0)));
+        select.selectByIndex(Integer.parseInt(list.get(0).get("index")));
         bp.program.click();
-        bp.visitDate.sendKeys(dataList.get(1));
+        bp.visitDate.sendKeys(list.get(0).get("date"));
     }
     @When("Click on Submit Button")
     public void click_on_submit_button() {

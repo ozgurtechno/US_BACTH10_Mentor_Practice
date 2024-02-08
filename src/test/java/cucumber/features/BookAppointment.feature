@@ -10,7 +10,10 @@ Feature: Book Appointment
   @SmokeTest
   Scenario: Book appointment
     Given Fill out the form
-      | 1            |
-      | "12/05/2023" |
+      | index  | date      |
+      |  1     |12/05/2023 |
     When Click on Submit Button
     Then Appointment should be completed
+
+
+#   Send the data with Datatable  18:15
