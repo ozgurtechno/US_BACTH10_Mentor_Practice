@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Suit">
+    <test name="Smoke Test with Chrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+<class name="cucumber.Runner.runnerClass"></class>
+        </classes>
+    </test>
+
+    <test name="Smoke Test with Edge">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="cucumber.Runner.runnerClass"></class>
+        </classes>
+    </test>
+</suite>
