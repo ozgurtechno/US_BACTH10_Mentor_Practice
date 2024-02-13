@@ -4,12 +4,12 @@
     <test name="Smoke Test with Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-<class name="cucumber.Runner.runnerClass"></class>
+            <class name="cucumber.Runner.runnerClass"></class>
         </classes>
     </test>
 
     <test name="Smoke Test with Edge">
-        <parameter name="browser" value="edge"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="cucumber.Runner.runnerClass"></class>
         </classes>
