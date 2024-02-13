@@ -12,17 +12,13 @@ import utilities.DriverClass;
 @CucumberOptions(
         features = "src/test/java/cucumber/features/BookAppointment.feature",
         glue = "cucumber/stepDefinitions",
-        tags = "@SmokeTest",
+
+        tags = "@SmokeTest or @RegressionTest",
+
         plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 )
-
 public class runnerClass extends AbstractTestNGCucumberTests {
-//    @BeforeClass
-//    @Parameters(value = "browser")
-//    public void setUp(@Optional("chrome") String browserName) {
-//        System.out.println("Test is starting");
-//        DriverClass.threadBrowserName.set(browserName);
-//    }
+
 
     @AfterClass
     public void terminate() {
@@ -38,3 +34,15 @@ public class runnerClass extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Team Name", "Team 1");
     }
 }
+
+    
+    @BeforeClass
+    @Parameters(value = "browser")
+    public void setUp(@Optional("chrome") String browserName) {
+        System.out.println("Test is starting");
+        DriverClass.threadBrowserName.set(browserName);
+    }
+    
+    
+}
+
