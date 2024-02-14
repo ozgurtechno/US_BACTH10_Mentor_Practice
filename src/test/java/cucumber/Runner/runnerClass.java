@@ -12,9 +12,7 @@ import utilities.DriverClass;
 @CucumberOptions(
         features = "src/test/java/cucumber/features/BookAppointment.feature",
         glue = "cucumber/stepDefinitions",
-
         tags = "@SmokeTest or @RegressionTest",
-
         plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 )
 public class runnerClass extends AbstractTestNGCucumberTests {
@@ -33,7 +31,7 @@ public class runnerClass extends AbstractTestNGCucumberTests {
         ExtentService.getInstance().setSystemInfo("Department Name", "QA");
         ExtentService.getInstance().setSystemInfo("Team Name", "Team 1");
     }
-}
+
 
     
     @BeforeClass

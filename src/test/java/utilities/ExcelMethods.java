@@ -2,14 +2,14 @@ package utilities;
 
 import io.cucumber.java.Scenario;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ExcelMethods {
 
@@ -42,26 +42,22 @@ public class ExcelMethods {
 
     public static void writeScenarioInfoToExcel(Scenario scenario, LocalDateTime startTime, LocalDateTime endTime, Duration duration) {
         String path = "src/test/java/ApachePOI/resources/scenarioInfo.xlsx";
-        File file = new File(path);
-        if (file.exists()){
-            FileInputStream fileInputStream;
-            Workbook workbook;
-            Sheet sheet = null;
-            try {
-                fileInputStream = new FileInputStream(path);
-                workbook = WorkbookFactory.create(fileInputStream);
-                sheet = workbook.getSheet("CampusTestResults");
-            } catch (IOException e) {
-                System.out.println("e.getMessage() = " + e.getMessage());
-            }
-            int numberOfRows = sheet.getPhysicalNumberOfRows();
-            Row row = sheet.createRow(numberOfRows);
+        try (Workbook workbook = new XSSFWorkbook(new FileInputStream(path));
+             FileOutputStream outputStream = new FileOutputStream(path)){
+
+            Sheet sheet = workbook.getSheet("TestResults");
+            int rowCount = sheet.getLastRowNum() + 1;
+            Row row = sheet.createRow(rowCount);
             row.createCell(0).setCellValue(scenario.getId());
             row.createCell(1).setCellValue(scenario.getName());
             row.createCell(2).setCellValue(scenario.getStatus().toString());
 
+            workbook.write(outputStream);
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
 
     }
 }
