@@ -6,25 +6,27 @@ import org.testng.annotations.Test;
 
 import java.sql.*;
 
+
 public class _01_JDBC {
-    Statement statement;
-    Connection connection;
-    @BeforeMethod
-    public void DBConnection() throws SQLException {
+
+    @Test
+    public void DBConnection() {
         String url = "jdbc:mysql://db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com:3306/employees";
         String username = "root";
         String password = "'\"-LhCB'.%k[4S]z";
 
-        connection = DriverManager.getConnection(url, username, password);
-        statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-    }
-    @AfterMethod
-    public void DBConnectionClose() throws SQLException {
-        connection.close();
-    }
-    @Test
-    public void test() throws SQLException {
-       ResultSet rs = statement.executeQuery("select * from employees");
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY))
+        {
+            try (ResultSet rs = statement.executeQuery("select * from employees")){
+                rs.next(); // moves the cursor to the next row
 
+                String firstName = rs.getString(3); // Gets the value from the 2nd column of the 1st row
+                System.out.println("firstName = " + firstName);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }

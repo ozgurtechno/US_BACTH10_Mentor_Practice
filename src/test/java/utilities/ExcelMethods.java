@@ -43,7 +43,7 @@ public class ExcelMethods {
     public static void writeScenarioInfoToExcel(Scenario scenario, LocalDateTime startTime, LocalDateTime endTime, Duration duration) {
         String path = "src/test/java/ApachePOI/resources/scenarioInfo.xlsx";
         try (Workbook workbook = new XSSFWorkbook(new FileInputStream(path));
-             FileOutputStream outputStream = new FileOutputStream(path)){
+             FileOutputStream outputStream = new FileOutputStream(path)) {
 
             Sheet sheet = workbook.getSheet("TestResults");
             int rowCount = sheet.getLastRowNum() + 1;
