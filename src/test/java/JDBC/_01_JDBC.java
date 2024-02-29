@@ -15,15 +15,12 @@ public class _01_JDBC {
         String username = "root";
         String password = "'\"-LhCB'.%k[4S]z";
 
-        try (Connection connection = DriverManager.getConnection(url, username, password);
-             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY))
-        {
-            try (ResultSet rs = statement.executeQuery("select * from employees")){
-                rs.next(); // moves the cursor to the next row
-
-                String firstName = rs.getString(3); // Gets the value from the 2nd column of the 1st row
-                System.out.println("firstName = " + firstName);
-            }
+        try (Connection connection = DriverManager.getConnection(url, username, password)){
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = statement.executeQuery("select * from employees");
+            rs.next(); // moves the cursor to the next row
+            String firstName = rs.getString(3); // Gets the value from the 2nd column of the 1st row
+            System.out.println("firstName = " + firstName);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
