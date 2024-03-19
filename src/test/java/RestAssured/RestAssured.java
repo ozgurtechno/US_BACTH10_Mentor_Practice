@@ -1,5 +1,6 @@
 package RestAssured;
 
+import RestAssured.POJO.MoviesResponse;
 import RestAssured.POJO.User;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ public class RestAssured {
 
     private final String AccountId = "21072953";
     @Test
-    void sendingToken(){
+    void accountDetails(){
 
         User response = given()
                 .header("Authorization","Bearer "+TOKEN)
@@ -23,6 +24,22 @@ public class RestAssured {
                 .extract().as(User.class);
 
         System.out.println(response);
+
+    }
+
+    @Test
+    void sendingToken2(){
+
+         MoviesResponse response = given()
+                .header("Authorization","Bearer "+TOKEN)
+                .contentType(ContentType.JSON)
+                .when()
+                .get("https://api.themoviedb.org/3/account/"+AccountId+"/rated/movies")
+                .then()
+                .extract().as(MoviesResponse.class);
+
+        System.out.println(response);
+
 
     }
 
