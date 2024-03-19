@@ -6,7 +6,6 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MoviesResponse {
-
     public String page;
     public List<Movie> results;
 
